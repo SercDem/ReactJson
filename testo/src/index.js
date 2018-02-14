@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import PostLister from './PostLister';
-//import App from './App';
-//import $ from 'jquery';
-
-
-//ReactDOM.render(<App />, document.getElementById('root'));
+import PostDetail from './postdetail';
 window.onload=function(){
+  var dEmail="";
+  var dPhone="";
+  var dUserName="";
   var dName="";
   var dTitle="";
 var dBodyCount=[];
@@ -28,68 +26,19 @@ var dBodyCount=[];
   .then(result => result.json())
   .then(data => {
     userData = data;
-
     fetch("https://jsonplaceholder.typicode.com/posts")
     .then(result => result.json())
     .then(dataPost => {
       postData=dataPost;
-      //console.log(dataPost);
-      for(let i = 0; i < dataPost.length; i++){
-        //console.log(dataPost[i].title);
-        //console.log(findUser(userData, dataPost[i].userId)[0]['name']);
-        //eArra.push(findUser(userData,dataPost[i].userId)[0]['name']);
-        /*
-        if(dataPost[i]['userId']==1){
-console.log("userid: "+dataPost[i].userId);
-console.log("title: "+dataPost[i].title);
-console.log("body: "+dataPost[i].body);
-console.log("id: "+dataPost[i].id);
-console.log("---------------------------");
-*/
-}
-
-/*
-  for(let y=0;y<postData.length;y++){
-    //if(postData[y].userId===1){
-      //console.log(postData[y].title);
-      //console.log(postData[y].userId);
-    //}
-
-  }
-*/
-        //console.log(findUser(userData, dataPost[i].userId)[0]['username']);
-        //console.log("- - - - - - - -");
-
-
-
-
-
-      //console.log(eArra);
-      console.log(userData);
+      //console.log(userData);
+      //console.log(postData);
 for(let i=0;i<userData.length;i++){
   uName.push(userData[i].name);
 }
 for(let i=0;i<postData.length;i++){
   pTitle.push(postData[i].title);
 }
-/*
-for(let i=0;i<postData.length;i++){
-  pTitle.push(postData[i].title);
-}
-for(let i=0;i<postData.length;i++){
-  pBody.push(postData[i].body);
-}
 
-for(let i=0;i<uName.length;i++){
-  console.log(uName[i]);
-  console.log(uID[i]);
-}
-for(let i=0;i<pBody.length;i++){
-  console.log(pBody[i]);
-  console.log(pTitle[i]);
-}
-*/
-      //console.log(postData);
 ReactDOM.render(<Tert1 />,document.getElementById('root'));
     });
   });
@@ -128,26 +77,54 @@ constructor(props){
 this.listclickker=this.listclickker.bind(this);
 }
 listclickker(e){
-  //alert(e.target.id);
-  console.log(postData);
   for(let i=0;i<postData.length;i++){
     if(postData[i].id.toString()===e.target.id.toString()){
-    dBodyCount.push(postData[i].body);
+    dBodyCount=postData[i].body;
+        dTitle=postData[i].title;
   }
-  }
-  for(let i=0;i<userData.length;i++){
-    if(userData[i].id.toString()===e.target.id.toString()){
-    dName=userData[i].name;
-  }
-  }
-  for(let i=0;i<postData.length;i++){
-    if(postData[i].id.toString()===e.target.id.toString()){
-    dTitle=postData[i].title;
-  }
-  }
+}
+var m;
+if(e.target.id<11){
+  m=1;
+}
+if(e.target.id>10 &&e.target.id<21){
+  m=2;
+}
+if(e.target.id>20 &&e.target.id<31){
+  m=3;
+}
+if(e.target.id>30 &&e.target.id<41){
+  m=4;
+}
+if(e.target.id>40 &&e.target.id<51){
+  m=5;
+}
+if(e.target.id>50 &&e.target.id<61){
+  m=6;
+}
+if(e.target.id>60 &&e.target.id<71){
+  m=7;
+}
+if(e.target.id>70 &&e.target.id<81){
+  m=8;
+}
+if(e.target.id>80 &&e.target.id<91){
+  m=9;
+}
+if(e.target.id>91){
+  m=10;
+}
 
-//alert("Name :"+dName+" Title :"+dTitle+"id :"+e.target.id);
-  //ReactDOM.render(<PostLister takenID={e.target.id} takenName={dName} takenTitle={dTitle} takenBody={dBodyCount}/>,document.getElementById('root'));
+  for(let i=0;i<userData.length;i++){
+
+    if(userData[i].id.toString()===m.toString()){
+      dEmail=userData[i].email;
+        dPhone=userData[i].phone;
+        dName=userData[i].name;
+        dUserName=userData[i].username;
+    }
+  }
+  ReactDOM.render(<PostDetail pD={postData} uD={userData} takenID={m} takenUsername={dUserName} takenPhone={dPhone} takenName={dName} takenTitle={dTitle} takenBody={dBodyCount} takenEmail={dEmail}/>,document.getElementById('root'));
 }
 
 render(){
@@ -175,77 +152,10 @@ if(props.no.toString()===vv.toString()){
         q.id===vv
         );
         return <span>{c.name}</span>;
-
   }
   else{
     return <span> </span>;
   }
-  /*
-    if(props.no.toString()===vv){
-      var c=userData.find(q=>
-            q.id===2
-            );
-              return <span>{c.name}</span>
-
-    }
-
-        if(props.no.toString()===vv){
-          var c=userData.find(q=>
-                q.id===3
-                );
-                  return <span>{c.name}</span>
-        }
-
-            if(props.no.toString()===vv){
-              var c=userData.find(q=>
-                    q.id===4
-                    );
-                      return <span>{c.name}</span>
-            }
-
-                if(props.no.toString()===vv){
-                  var c=userData.find(q=>
-                        q.id===5
-                        );
-                          return <span>{c.name}</span>
-                }
-
-                    if(props.no.toString()===vv){
-                      var c=userData.find(q=>
-                            q.id===6
-                            );
-                              return <span>{c.name}</span>
-                    }
-
-                        if(props.no.toString()===vv){
-                          var c=userData.find(q=>
-                                q.id===7
-                                );
-                                  return <span>{c.name}</span>
-                        }
-
-                            if(props.no.toString()===vv){
-                              var c=userData.find(q=>
-                                    q.id===8
-                                    );
-                                      return <span>{c.name}</span>
-                            }
-
-                                if(props.no.toString()===vv){
-                                  var c=userData.find(q=>
-                                        q.id===9
-                                        );
-                                          return <span>{c.name}</span>
-                                }
-
-                                    if(props.no.toString()===vvv){
-                                      var c=userData.find(q=>
-                                            q.id===10
-                                            );
-                                              return <span>{c.name}</span>
-                                    }
-                                    */
-
   }
 
 

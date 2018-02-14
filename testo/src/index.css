@@ -8,5 +8,48 @@ body {
   height:100px;
   width:450px;
   margin-top: 15px;
+  opacity: 0.8;
+  font-size: 19px;
+  position: relative;
+right: -50px;
 
+}
+.Listdivbody{
+  background:white;
+  height:100px;
+  width:450px;
+  margin-top: 15px;
+  opacity: 0.8;
+  font-size: 19px;
+  position: relative;
+right: -50px;
+bottom:15px;
+}
+.leftdiv{
+border:solid;
+width:200px;
+float:left;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 5px;
+
+}
+#linkforinfo{
+  display:inline-block;
+  text-decoration: underline;
+  color:blue;
+  padding: 30px;
+padding-left: 200px;
+}
+.rightdiv{
+
+border:solid;
+width: 450px;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 5px;
+}
+.AuthorDiv{
+
+  padding-left: 50px;
 }
