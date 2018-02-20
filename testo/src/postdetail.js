@@ -10,7 +10,6 @@ this.infoPart=this.infoPart.bind(this);
 }
 
 infoPart(){
-
   if(this.state.v5===false){
   this.setState({v5:true});
 $('#showcomment').show();
@@ -21,15 +20,15 @@ else{
 }
 }
 render(){
-  var i_id=this.props.takenID;
-  var Username=this.props.takenUsername;
-  var Name=this.props.takenName;
-  var Email=this.props.takenEmail;
-  var Phone=this.props.takenPhone;
-  var Title=this.props.takenTitle;
-  var Body=this.props.takenBody;
-  var uD=this.props.uD;
-  var pD=this.props.pD;
+  let i_id=this.props.takenID;
+  let Username=this.props.takenUsername;
+  let Name=this.props.takenName;
+  let Email=this.props.takenEmail;
+  let Phone=this.props.takenPhone;
+  let Title=this.props.takenTitle;
+  let Body=this.props.takenBody;
+  let uD=this.props.uD;
+  let pD=this.props.pD;
   return(
     <div>
     <h1>Post Detail</h1>
