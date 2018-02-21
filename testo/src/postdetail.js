@@ -2,13 +2,18 @@ import React from "react";
 import './index.css';
 import $ from "jquery";
 import ShowComment from "./ShowComments";
+import ReactDOM from "react-dom";
+import ListPart1 from "./ListPart1";
 class PostDetail extends React.Component{
 constructor(props){
 super(props);
 this.state={v5:false};
 this.infoPart=this.infoPart.bind(this);
+this.returnToFirstPage=this.returnToFirstPage.bind(this);
 }
-
+returnToFirstPage(){
+  ReactDOM.render(<ListPart1 />,document.getElementById('root'));
+}
 infoPart(){
   if(this.state.v5===false){
   this.setState({v5:true});
@@ -32,6 +37,7 @@ render(){
   return(
     <div>
     <h1>Post Detail</h1>
+    <h1 id="toReturn" onClick={this.returnToFirstPage}> Click This To Return</h1>
     <div className="Listdiv">
     <span>Post Title :{Title}</span>
     <p></p>

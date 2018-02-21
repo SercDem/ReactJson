@@ -57,15 +57,22 @@ super(props);
 this.listClickker=this.listClickker.bind(this);
 }
 listClickker(e){
+  let tarName=e.target;
+  while(tarName.tagName!=="DIV"){
+    tarName=tarName.parentNode;
+  }
+let tarId=tarName.id;
+  //
+
 for(let i=0;i<postData.length;i++){
-  if(postData[i].id.toString()===e.target.id.toString()){
+  if(postData[i].id.toString()===tarId.toString()){
   dBodyCount=postData[i].body;
   dTitle=postData[i].title;
   }
   }
 //
 let collectedId=postData.find(q=>
-q.id.toString()===e.target.id.toString()
+q.id.toString()===tarId.toString()
 );
 let collectedId1=collectedId.userId;
 
@@ -79,6 +86,7 @@ let collectedId1=collectedId.userId;
       dUserName=userData[i].username;
   }
 }
+
 ReactDOM.render(<PostDetail pD={postData} uD={userData} takenID={collectedId1} takenUsername={dUserName} takenPhone={dPhone} takenName={dName} takenTitle={dTitle} takenBody={dBodyCount} takenEmail={dEmail}/>,document.getElementById('root'));
 }
 
@@ -89,7 +97,7 @@ q.title===this.props.item
 
 return(
   <div onClick={this.listClickker} className="Listdiv" id={this.props.i_id}>
-  <span id={this.props.i_id}>Post Title : {this.props.item}</span>
+  <span>Post Title : {this.props.item}</span>
   <p></p>
 <span> Username :<GetUsername no={a.userId} vTitle={this.props.item}/></span>
   </div>
