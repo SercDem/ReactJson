@@ -7,13 +7,16 @@ import ListPart1 from "./ListPart1";
 class PostDetail extends React.Component{
 constructor(props){
 super(props);
+//This is for defining the state of item if its visible or not
 this.state={v5:false};
 this.infoPart=this.infoPart.bind(this);
 this.returnToFirstPage=this.returnToFirstPage.bind(this);
 }
+//Returns the user to first page
 returnToFirstPage(){
   ReactDOM.render(<ListPart1 />,document.getElementById('root'));
 }
+//The function to show or hide extra info
 infoPart(){
   if(this.state.v5===false){
   this.setState({v5:true});
@@ -24,7 +27,9 @@ else{
   this.setState({v5:false});
 }
 }
+//
 render(){
+  //Assinging values to call them easier
   let i_id=this.props.takenID;
   let Username=this.props.takenUsername;
   let Name=this.props.takenName;

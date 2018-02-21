@@ -2,12 +2,8 @@ import React from "react";
 import './index.css';
 import ShowComments2 from "./ShowComments2"
 class ShowComment extends React.Component{
-  constructor(props){
-  super(props);
-      this.state={vBody:[],vTitle:[]};
-  }
-
   render(){
+    //Assinging the values we get from prop so they are easier to call
     let TitleArra=[],BodyArra=[];
     let Email=this.props.takenEmail;
     let pD=this.props.poD;
@@ -18,6 +14,7 @@ for(let i=0;i<pD.length;i++){
     BodyArra.push(pD[i].body);
   }
 }
+//Mapping items we have
 let mappa=TitleArra;
 let i=-1;
 mappa=mappa.map(function(item,index){
