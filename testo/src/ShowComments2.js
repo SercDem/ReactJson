@@ -1,29 +1,31 @@
 import React from "react";
+
 class ShowComments2 extends React.Component {
 
-  render() {
-    return ( <
-      div >
+    render() {
+        return (<
+                div>
+                <
+                    div className="Listdiv">
       <
-      div className = "Listdiv" >
+          span> Title Name: {
+          this.props.tTitle
+      }
+          </span><p></p>
+                    <
+                        span> Email: {
+                        this.props.tEmail
+                    }
+          </span></div>
+                <div className="Listdivbody">
       <
-      span > Title Name: {
-        this.props.tTitle
-      } < /span><p></p >
-      <
-      span > Email: {
-        this.props.tEmail
-      } < /span> <
-      /div> <
-      div className = "Listdivbody" >
-      <
-      span > Body: {
-        this.props.tBody
-      } < /span> <
-      /div> <
-      /div>
-    );
-  }
+          span> Body: {
+          this.props.tBody
+      }
+          </span></div>
+            </div>
+        );
+    }
 }
 
 
